@@ -8,7 +8,7 @@ bindHost = '127.0.0.1'
 maxRequestsPerMinute = 10
 
 # The external URL of the app (for returning uploaded files).
-appUrl = 'http://127.0.0.1:8000'
+appUrl = 'http://127.0.0.1:3000'
 
 # The supported video formats for uploads.
 supportedVideoFormats = ['mp4', 'mkv']

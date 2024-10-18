@@ -1,0 +1,17 @@
+# The port for the app to listen on.
+bindPort = 3000
+
+# The hostname for the app to listen on.
+bindHost = '127.0.0.1'
+
+# The maximum amount of requests per minute per ip address.
+maxRequestsPerMinute = 10
+
+# The external URL of the app (for returning uploaded files).
+appUrl = 'http://127.0.0.1:8000'
+
+# The supported video formats for uploads.
+supportedVideoFormats = ['mp4', 'mkv']
+
+# The supported image formats for uploads.
+supportedImageFormats = ['jpg', 'jpeg', 'png', 'webp']

@@ -1,0 +1,17 @@
+{
+	"tasks": {
+		"dev": "deno run --watch --env -A src/app.ts"
+	},
+	"imports": {
+		"hono": "npm:hono@^4.6.5",
+		"hono-rate-limiter": "npm:hono-rate-limiter@^0.4.0",
+		"ioredis": "npm:ioredis@^5.4.1",
+		"sharp": "npm:sharp@^0.33.5"
+	},
+	"fmt": {
+		"useTabs": true,
+		"lineWidth": 120,
+		"indentWidth": 4,
+		"singleQuote": true
+	}
+}

@@ -52,6 +52,8 @@ export default async (context: Context) => {
 
 	for await (const file of files) {
 		let name = file.type === 'image' ? file.data.name.replace(file.extension, '.png') : file.data.name;
+		const nameUrl = new URL(name);
+		name = nameUrl.origin + nameUrl.pathname;
 
 		let media = null;
 		switch (file.type) {

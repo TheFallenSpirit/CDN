@@ -20,6 +20,14 @@ app.use(rateLimiter({
 	message: { error: 'You are sending to many requests, please try again later. Ratelimit: 10 requests per minute.' },
 }));
 
+const lines = [
+	`To retrieve a file, set a GET request to ${config.appUrl}/:dir/:file. If you want to upload a file,`,
+	` send a POST request to ${config.appUrl}/upload with the following header: "Authorization: Bearer <api-key-here>".`
+];
+
+app.get('/', (context) => context.json({ error: `Welcome to the FS CDN! ${lines.join('')}` }, 200));
+app.notFound((context) => context.json({ error: `The specified path was not found! ${lines.join('')}` }, 404));
+
 app.get('/:dir/:file', async (context) => {
 	const { dir, file } = context.req.param();
 

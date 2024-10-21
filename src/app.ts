@@ -21,8 +21,8 @@ app.use(rateLimiter({
 }));
 
 const lines = [
-	`To retrieve a file, set a GET request to ${config.appUrl}/:dir/:file. If you want to upload a file,`,
-	` send a POST request to ${config.appUrl}/upload with the following header: "Authorization: Bearer <api-key-here>".`
+	`To retrieve a file, set a GET request to ${config.appUrl}/:dir/:file. If you want to upload a file, send a `,
+	`POST request to ${config.appUrl}/upload/:dir with the following header: "Authorization: Bearer <api-key-here>".`
 ];
 
 app.get('/', (context) => context.json({ error: `Welcome to the FS CDN! ${lines.join('')}` }, 200));

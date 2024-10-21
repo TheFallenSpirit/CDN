@@ -30,7 +30,7 @@ export default async (context: Context) => {
 			}, 400);
 		}
 
-		const extension = extname(`${Deno.env.get('APP_URL')}/${body[key].name}`);
+		const extension = extname(`${config.appUrl}/${body[key].name}`);
 
 		if (config.supportedImageFormats.includes(extension.replace('.', ''))) {
 			files.push({ data: body[key], extension, type: 'image' });
@@ -68,7 +68,7 @@ export default async (context: Context) => {
 
 		Deno.writeFileSync(`${import.meta.dirname}/../media/${dir}/${name}`, media);
 		await redis.set(`fscdn_file:${dir}/${name}`, media, 'EX', 3600);
-		urls.push(`${Deno.env.get('APP_URL')}/${dir}/${name}`);
+		urls.push(`${config.appUrl}/${dir}/${name}`);
 	}
 
 	return context.json({ urls }, 201);

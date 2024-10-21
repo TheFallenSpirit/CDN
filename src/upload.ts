@@ -52,6 +52,7 @@ export default async (context: Context) => {
 
 	for await (const file of files) {
 		let name = file.type === 'image' && file.extension !== 'png' ? file.data.name.replace(file.extension, '.png') : file.data.name;
+		name = decodeURIComponent(name.split('?')[0].split('#')[0]).replace(/[^\w.-]/g, '_');
 
 		let media = null;
 		switch (file.type) {

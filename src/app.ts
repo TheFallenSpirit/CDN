@@ -17,7 +17,7 @@ app.use(rateLimiter({
 	store: new RedisStore(),
 	limit: config.maxRequestsPerMinute,
 	keyGenerator: (c) => getConnInfo(c).remote.address ?? 'global',
-	message: { error: 'You are sending to many requests, please try again later. Ratelimit: 10 requests per minute.' },
+	message: { error: `You are sending to many requests, please try again later. Ratelimit: ${config.maxRequestsPerMinute} requests per minute.` },
 }));
 
 const lines = [
